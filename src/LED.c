@@ -6,24 +6,32 @@
  */
 #include <stdio.h>
 #include <stdlib.h> 
-#include <bcm2835.h>
+#include <wiringPi.h>
 
 #define LED RPI_V2_GPIO_P1_12
 
 int main(int argc, char **argv)
 {
-	if(!bcm2835_init()) return 1;
-	bcm2835_gpio_fsel(LED, BCM2835_GPIO_FSEL_OUTP);		/* Sets LED to output */
-	unsigned int delay = 1000;
-
-	/* While loop that will turn on the LED, turn it off */
+	wiringPiSetup(); // Initializes wiringPi using wiringPi's simplified number system
+	wiringPiSetupGpio(); // Initializes wiringPi using Broadcom GPIO numbers
+	
 	while(1){
-		bcm2835_gpio_set(12);	/* Sets LED GPIO pin to on */
-		printf("Turned on LED\n");
-		bcm2835_delay(delay);	/* Waits one second before continuing */
-		bcm2835_gpio_clr(LED);	/* Sets LED GPIO pin to off */
-		printf("Turned off LED\n");
-		bcm2835_delay(delay);
+		/* Pin mode declaration: pinMode([pin],[mode]);
+		 * with modes being INPUT, OUTPUT, PWM_OUTPUT	*/
+		pinMode(18, OUTPUT);
+
+		/* Digital output: function that can set a desired pin to high or low.
+		 * digitalWrite([pin],[HIGH/LOW])				*/
+		digitalWrite(18, HIGH);
+		
+		/* delay funtion:
+		 * delay([milliseconds]);
+		 * stops the program for the specified amount of time.*/
+		unsigned int _delay = 2000;
+		delay(_delay);
+
+		digitalWrite(18, LOW);
 	}
+
 	return 0;
 }
