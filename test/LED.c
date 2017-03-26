@@ -8,7 +8,7 @@
 #include <stdlib.h> 
 #include <wiringPi.h>
 
-#define LED RPI_V2_GPIO_P1_12
+#define LED 18
 
 int main(int argc, char **argv)
 {
@@ -17,20 +17,20 @@ int main(int argc, char **argv)
 	
 	/* Pin mode declaration: pinMode([pin],[mode]);
 	* with modes being INPUT, OUTPUT, PWM_OUTPUT	*/
-	pinMode(18, OUTPUT);
+	pinMode(LED, OUTPUT);
 	unsigned int _delay = 1000;
 
 	while(1){
 		/* Digital output: function that can set a desired pin to high or low.
 		 * digitalWrite([pin],[HIGH/LOW])				*/
-		digitalWrite(18, HIGH);
+		digitalWrite(LED, HIGH);
 		
 		/* delay funtion:
 		 * delay([milliseconds]);
 		 * stops the program for the specified amount of time.*/
 		delay(_delay);
 
-		digitalWrite(18, LOW);
+		digitalWrite(LED, LOW);
 		delay(_delay);
 	}
 
