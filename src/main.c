@@ -11,10 +11,10 @@
 #define M2_FWD
 #define M2_BWD
 
-void forward(int delay);
-void backwards(int delay);
-void right_turn(int delay);
-void left_turn(int delay);
+void forward(int _delay);
+void backwards(int _delay);
+void right_turn(int _delay);
+void left_turn(int _delay);
 
 int main()
 {
@@ -65,7 +65,7 @@ void backwards(int _delay)
  * input: delay - How long the car will turn right
  * output: none
  */
-void right_turn(int delay)
+void right_turn(int _delay)
 {
 	digitalWrite(M1_BWD, HIGH);
 	digitalWrite(M2_FWD, HIGH);
@@ -78,7 +78,7 @@ void right_turn(int delay)
  * input: delay - How long the car will turn left
  * ouput: none
  */
-void left_turn(int delay)
+void left_turn(int _delay)
 {
 	digitalWrite(M1_FWD, HIGH);
 	digitalWrite(M2_BWD, HIGH);
