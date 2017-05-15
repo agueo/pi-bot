@@ -32,16 +32,17 @@ int main()
 				backwards(_delay);
 				break;
 			case('a'):
-				left_turn(_delay);
+				right_turn(250);
 				break;
 			case('d'):
-				right_turn(_delay);
+				left_turn(250);
 				break;
 			case('q'):
 				return 0;
 			default:
 				printf("Not a valid command");
 				break;
+		}
 	}
 
 	return 0;
