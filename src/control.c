@@ -37,10 +37,17 @@ int main()
 				backwards(_delay);
 				break;
 			case('a'):
+<<<<<<< HEAD
 				left_turn(250);
 				break;
 			case('d'):
 				right_turn(250);
+=======
+				right_turn(250);
+				break;
+			case('d'):
+				left_turn(250);
+>>>>>>> c91dfb957efc87ab9ea30bf5eaa4fa463a3d3d5f
 				break;
 			case('q'):
 				return 0;
