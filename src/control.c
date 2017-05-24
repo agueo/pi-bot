@@ -16,14 +16,19 @@ void left_turn(int _delay);
 int main()
 {
 	/* initialize the wiringPi library */
-	unsigned int _delay = 1000;
+	unsigned int _delay = 2000;
+	char cmd;
 	wiringPiSetup();
 	wiringPiSetupGpio();
-	char cmd;
+	pinMode(M1_FWD, OUTPUT);
+	pinMode(M1_BWD, OUTPUT);
+	pinMode(M2_FWD, OUTPUT);
+	pinMode(M2_BWD, OUTPUT);
+
 	// TODO - add running loop
 	while(1)
 	{
-		scanf("%c",&cmd);
+		scanf("%c", &cmd);
 		switch(cmd){
 			case('w'):
 				forward(_delay);
@@ -32,18 +37,18 @@ int main()
 				backwards(_delay);
 				break;
 			case('a'):
-				left_turn(_delay);
+				left_turn(250);
 				break;
 			case('d'):
-				right_turn(_delay);
+				right_turn(250);
 				break;
 			case('q'):
 				return 0;
 			default:
-				printf("Not a valid command");
+				printf("Not a valid command\n");
 				break;
+		}
 	}
-
 	return 0;
 }
 
@@ -57,7 +62,7 @@ void forward(int _delay)
 	digitalWrite(M2_FWD, HIGH);
 	delay(_delay);
 	digitalWrite(M1_FWD, LOW);
-	digitalWrite(M1_FWD, LOW);
+	digitalWrite(M2_FWD, LOW);
 }
 
 /* Backwards function - Move the car in reverse
@@ -98,5 +103,4 @@ void left_turn(int _delay)
 	digitalWrite(M1_FWD, LOW);
 	digitalWrite(M2_BWD, LOW);
 }
-
 
