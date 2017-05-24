@@ -141,10 +141,6 @@ double distance(void)
 	double t_tot;
 	double distance;
 	
-	/* Allow sensor to settle. */
-	digitalWrite(TRIG, LOW);
-	delay(2000);
-
 	/* Send out 10uS pulse */
 	digitalWrite(TRIG, HIGH);
 	delayMicroseconds(10);
