@@ -61,11 +61,6 @@ int main()
 			right_turn(500);
 			left_turn(1000);
 		}
-		else
-		{
-			backwards(_delay);
-			left_turn(500);
-		}
 	}
 	
 	/* Reset all pins to LOW */
